@@ -4,11 +4,16 @@
   "description": "## Introduction * 이번 퀘스트에서는 웹 서비스를 만드는 기초적인 방법과 구성에 대해 알아보겠습니다.",
   "main": "index.js",
   "scripts": {
+    "build": "rm -rf ./build && npm run add-assets",
+    "add-assets": "copyfiles -u 1 './src/index.js' ./build/src",
+    "local": "node ./src/index.js",
+    "deploy": "npm run build && bash deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "copyfiles": "^2.4.1",
     "express": "^4.17.1"
   }
 }
